@@ -1,101 +1,144 @@
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
+import { Code, BarChart3, Brain } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex flex-col min-h-screen">
+      <header className="px-4 lg:px-6 h-16 flex items-center border-b">
+        <Link className="flex items-center justify-center" href="#">
+          <Image
+            src="/images/Smarteras_Logo.svg"
+            alt="Smarteras Logo"
+            width={300}
+            height={75}
+            className="h-16 w-auto"
+          />
+        </Link>
+        <nav className="ml-auto flex gap-8">
+          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#purpose">
+            Purpose
+          </Link>
+          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#service">
+            Service
+          </Link>
+          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#about">
+            About Us
+          </Link>
+          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#contact">
+            Contact
+          </Link>
+        </nav>
+      </header>
+      <main className="flex-1">
+        <section className="w-full py-24 bg-[#3B4646] text-white">
+          <div className="container px-4 md:px-6 text-center flex flex-col justify-center min-h-[300px]">
+            <h1 className="text-5xl font-bold mb-8">
+              <Image
+                src="/images/Smarteras_Logo_String.svg"
+                alt="Smarteras"
+                width={400}
+                height={100}
+                className="mx-auto"
+              />
+            </h1>
+            <p className="text-xl">世の中をもっとスマートに</p>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        <section id="service" className="w-full py-24">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold text-center mb-16">Service</h2>
+            <div className="max-w-3xl mx-auto space-y-24">
+              <div className="flex justify-center items-start gap-8">
+                <div className="relative flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold">
+                    01
+                  </div>
+                  <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 border border-gray-300 rounded flex items-center justify-center">
+                    <Code className="w-6 h-6" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4">システム開発</h3>
+                  <p className="text-gray-600">
+                    最新の技術を活用して、
+                    <br />
+                    お客様のニーズに合わせて、
+                    <br />
+                    効率的にシステムを
+                    <br />
+                    開発します。
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex justify-center items-start gap-8">
+                <div className="relative flex-shrink-0 flex flex-col items-center">
+                  <div className="w-16 h-16 rounded-full bg-[#FCD34D] flex items-center justify-center text-white font-bold">
+                    02
+                  </div>
+                  <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 border border-gray-300 rounded flex items-center justify-center">
+                    <BarChart3 className="w-6 h-6" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4">データ分析</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    高度なデータ分析技術と<br />
+                    機械学習技術により、<br />
+                    お客様の経営課題を<br />
+                    解決します。
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex justify-center items-start gap-8">
+                <div className="relative flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-[#7DD3FC] flex items-center justify-center text-white font-bold">
+                    03
+                  </div>
+                  <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 border border-gray-300 rounded flex items-center justify-center">
+                    <Brain className="w-6 h-6" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4">生成AI導入</h3>
+                  <p className="text-gray-600">
+                    お客様の業務プロセスを<br />
+                    より効率的にするために、<br />
+                    生成AIを有効活用できるよう<br />
+                    に支援します。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="w-full py-24 bg-white">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold text-center mb-16">About us</h2>
+            <div className="max-w-3xl mx-auto">
+              <div className="aspect-video bg-gray-400 flex items-center justify-center text-white text-4xl">TBD</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="w-full py-24 bg-white">
+          <div className="container px-4 md:px-6 text-center">
+            <Button variant="secondary" className="bg-[#2F3437] text-white hover:bg-[#2F3437]/90 px-8 py-6 rounded">
+              お問い合わせはこちらへ
+            </Button>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="py-6 bg-[#2F3437] text-white/60 text-sm text-center">
+        <div className="container px-4 md:px-6">© 2025 Smarteras Inc. All rights reserved.</div>
       </footer>
     </div>
-  );
+  )
 }
+
