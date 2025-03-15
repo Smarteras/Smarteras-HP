@@ -6,34 +6,34 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b">
-        <Link className="flex items-center justify-center" href="#">
-          <Image
-            src="/images/Smarteras_Logo.svg"
-            alt="Smarteras Logo"
-            width={300}
-            height={75}
-            className="h-16 w-auto"
-          />
-        </Link>
-        <nav className="ml-auto flex gap-8">
-          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#purpose">
-            Purpose
+    <div className="flex min-h-screen flex-col">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
+        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/images/Smarteras_Logo.svg"
+              alt="Smarteras Logo"
+              width={192}
+              height={192}
+              className="w-48 h-48 object-contain"
+              priority
+            />
           </Link>
-          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#service">
-            Service
-          </Link>
-          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#about">
-            About Us
-          </Link>
-          <Link className="text-sm font-medium hover:text-gray-600 transition-colors" href="#contact">
-            Contact
-          </Link>
-        </nav>
+          <nav className="flex gap-6">
+            <Link href="#service" className="text-sm font-medium hover:underline">
+              Service
+            </Link>
+            <Link href="#member" className="text-sm font-medium hover:underline">
+              Member
+            </Link>
+            <Link href="#contact" className="text-sm font-medium hover:underline">
+              Contact
+            </Link>
+          </nav>
+        </div>
       </header>
-      <main className="flex-1">
-        <section className="w-full py-24 bg-[#3B4646] text-white">
+      <main className="flex-1 pt-16">
+        <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#3B4646] relative px-4">
           <div className="container px-4 md:px-6 text-center flex flex-col justify-center min-h-[300px]">
             <h1 className="text-5xl font-bold mb-8">
               <Image
@@ -44,7 +44,7 @@ export default function Home() {
                 className="mx-auto"
               />
             </h1>
-            <p className="text-xl">世の中をもっとスマートに</p>
+            <p className="text-xl text-white">世の中をもっとスマートに</p>
           </div>
         </section>
 
@@ -93,6 +93,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="w-full h-px bg-gray-200"></div>
 
         <section id="service" className="w-full py-24">
           <div className="container px-4 md:px-6">
@@ -164,6 +166,8 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="w-full h-px bg-gray-200"></div>
+
         <section id="about" className="w-full py-24 bg-white">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-16">About us</h2>
@@ -220,7 +224,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4">松田光司​​​</h3>
+                  <h3 className="text-2xl font-bold mb-4">松田 光司​​​</h3>
                   <p className="text-gray-600 leading-relaxed">
                   代表​取締役(CEO)<br/>
                   大阪大学​大学院マルチメディア工学専攻修了<br/>
@@ -244,7 +248,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4">西野祐希​​​​</h3>
+                  <h3 className="text-2xl font-bold mb-4">西野 祐希​​​​</h3>
                   <p className="text-gray-600 leading-relaxed">
                   取締役(CTO)<br/>
                   大阪大学​大学院マルチメディア工学専攻修了<br/>

@@ -90,7 +90,7 @@ const config: Config = {
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		fontFamily: {
-  			sans: ["var(--font-zen-kaku)", "var(--font-montserrat)", "sans-serif"],
+  			sans: ["var(--font-noto-serif-jp)", "var(--font-montserrat)", "serif"],
   			montserrat: ["var(--font-montserrat)", "sans-serif"],
   		},
   	}
