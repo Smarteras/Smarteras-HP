@@ -33,18 +33,31 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1 pt-16">
-        <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#3B4646] relative px-4">
-          <div className="container px-4 md:px-6 text-center flex flex-col justify-center min-h-[300px]">
-            <h1 className="text-5xl font-bold mb-8">
+        <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#F5F5F5] relative px-4">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F5] via-[#FAFAFA] to-[#F5F5F5] opacity-50"></div>
+          <div className="container px-4 md:px-6 text-center flex flex-col justify-center min-h-[300px] relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[600px] h-[600px]">
               <Image
-                src="/images/Smarteras_Logo_String.svg"
-                alt="Smarteras"
-                width={400}
-                height={100}
-                className="mx-auto"
+                src="/images/Smarteras_Icon.svg"
+                alt="Smarteras Icon Background"
+                fill
+                className="object-contain"
+                priority
               />
-            </h1>
-            <p className="text-xl text-white">世の中をもっとスマートに</p>
+            </div>
+            <div className="absolute left-[-1rem] right-[-1rem] bg-black/70 backdrop-blur-sm h-screen -translate-y-[calc(100vh-70%)] top-0"></div>
+            <div className="relative z-10">
+              <h1 className="text-5xl font-bold mb-8 relative">
+                <Image
+                  src="/images/Smarteras_Logo_String.svg"
+                  alt="Smarteras"
+                  width={400}
+                  height={100}
+                  className="mx-auto"
+                />
+              </h1>
+              <p className="text-xl text-white relative">世の中をもっとスマートに</p>
+            </div>
           </div>
         </section>
 
@@ -85,7 +98,7 @@ export default function Home() {
               
               <div className="bg-[#3B4646] text-white p-8 rounded-lg">
                 <p className="text-center text-lg leading-relaxed">
-                  我々は、「効率的なシステム開発」、「高度なデータ分析」、<br />
+                  私たちは、「効率的なシステム開発」、「高度なデータ分析」、<br />
                   「生成AIなどの最新技術の導入支援」によって、<br />
                   世の中をさらにスマートにしていき、未来を照らします。
                 </p>
@@ -96,70 +109,82 @@ export default function Home() {
 
         <div className="w-full h-px bg-gray-200"></div>
 
-        <section id="service" className="w-full py-24">
+        <section id="service" className="w-full py-24 bg-white">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-16">Service</h2>
-            <div className="max-w-3xl mx-auto space-y-24">
-              <div className="flex justify-center items-start gap-8">
-                <div className="relative flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold">
-                    01
+            <div className="max-w-5xl mx-auto grid grid-cols-1 gap-12">
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex items-center justify-center md:justify-end order-1 md:order-none">
+                    <div className="relative w-56 h-56">
+                      <Image
+                        src="/images/development.jpg"
+                        alt="Development Icon"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 border border-gray-300 rounded flex items-center justify-center">
-                    <Code className="w-6 h-6" />
+                  <div className="flex flex-col items-center md:items-start md:pl-8 order-2 md:order-none">
+                    <div className="w-16 h-16 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold mb-4">
+                      01
+                    </div>
+                    <h3 className="text-xl font-bold mb-4">システム開発</h3>
+                    <p className="text-gray-600 text-center md:text-left">
+                      最新の技術を活用して、<br />
+                      効率的なシステムを開発します。
+                    </p>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4">システム開発</h3>
-                  <p className="text-gray-600">
-                    最新の技術を活用して、
-                    <br />
-                    お客様のニーズに合わせて、
-                    <br />
-                    効率的にシステムを
-                    <br />
-                    開発します。
-                  </p>
                 </div>
               </div>
 
-              <div className="flex justify-center items-start gap-8">
-                <div className="relative flex-shrink-0 flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-[#FCD34D] flex items-center justify-center text-white font-bold">
-                    02
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex items-center justify-center md:justify-end order-1 md:order-none">
+                    <div className="relative w-56 h-56">
+                      <Image
+                        src="/images/analytics.png"
+                        alt="Analytics Icon"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 border border-gray-300 rounded flex items-center justify-center">
-                    <BarChart3 className="w-6 h-6" />
+                  <div className="flex flex-col items-center md:items-start md:pl-8 order-2 md:order-none">
+                    <div className="w-16 h-16 rounded-full bg-[#FCD34D] flex items-center justify-center text-white font-bold mb-4">
+                      02
+                    </div>
+                    <h3 className="text-xl font-bold mb-4">データ分析</h3>
+                    <p className="text-gray-600 text-center md:text-left">
+                      高度なデータ分析技術で、<br />
+                      お客様の経営課題を解決します。
+                    </p>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4">データ分析</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    高度なデータ分析技術と<br />
-                    機械学習技術により、<br />
-                    お客様の経営課題を<br />
-                    解決します。
-                  </p>
                 </div>
               </div>
 
-              <div className="flex justify-center items-start gap-8">
-                <div className="relative flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-[#7DD3FC] flex items-center justify-center text-white font-bold">
-                    03
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="flex items-center justify-center md:justify-end order-1 md:order-none">
+                    <div className="relative w-56 h-56">
+                      <Image
+                        src="/images/generativeAI.jpg"
+                        alt="Generative AI Icon"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-12 h-12 border border-gray-300 rounded flex items-center justify-center">
-                    <Brain className="w-6 h-6" />
+                  <div className="flex flex-col items-center md:items-start md:pl-8 order-2 md:order-none">
+                    <div className="w-16 h-16 rounded-full bg-[#7DD3FC] flex items-center justify-center text-white font-bold mb-4">
+                      03
+                    </div>
+                    <h3 className="text-xl font-bold mb-4">生成AI導入</h3>
+                    <p className="text-gray-600 text-center md:text-left">
+                      業務プロセスの効率化に向けて、<br />
+                      生成AIの活用を支援します。
+                    </p>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4">生成AI導入</h3>
-                  <p className="text-gray-600">
-                    お客様の業務プロセスを<br />
-                    より効率的にするために、<br />
-                    生成AIを有効活用できるよう<br />
-                    に支援します。
-                  </p>
                 </div>
               </div>
             </div>
@@ -188,19 +213,19 @@ export default function Home() {
               <div className="text-center">
                 <h3 className="inline-block text-2xl font-bold px-8 py-2 bg-[#7DD3FC] text-white rounded-full mb-8">Value</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                  <div className="p-4 border-2 border-gray-200 rounded-lg">
+                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
                     <p className="font-medium text-gray-800">成長</p>
                   </div>
-                  <div className="p-4 border-2 border-gray-200 rounded-lg">
+                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
                     <p className="font-medium text-gray-800">簡素化</p>
                   </div>
-                  <div className="p-4 border-2 border-gray-200 rounded-lg">
+                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
                     <p className="font-medium text-gray-800">Data Utilization</p>
                   </div>
-                  <div className="p-4 border-2 border-gray-200 rounded-lg">
+                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
                     <p className="font-medium text-gray-800">真摯</p>
                   </div>
-                  <div className="p-4 border-2 border-gray-200 rounded-lg md:col-span-1 col-span-2">
+                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4 md:col-span-1 col-span-2">
                     <p className="font-medium text-gray-800">普遍化</p>
                   </div>
                 </div>
