@@ -32,8 +32,8 @@ export default function Home() {
           </nav>
         </div>
       </header>
-      <main className="flex-1 pt-16">
-        <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#F5F5F5] relative px-4">
+      <main className="flex-1 pt-0 md:pt-16">
+        <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#F5F5F5] relative px-4 pt-16 md:pt-0">
           <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F5] via-[#FAFAFA] to-[#F5F5F5] opacity-50"></div>
           <div className="container px-4 md:px-6 text-center flex flex-col justify-center min-h-[300px] relative">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[600px] h-[600px]">
@@ -63,44 +63,72 @@ export default function Home() {
 
         <section className="w-full py-24 bg-gray-50">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">Smarteras が取り組む課題</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">
+              <span className="md:inline block">Smarterasが</span>
+              <span className="md:inline"> 取り組む課題</span>
+            </h2>
+            <p className="text-center text-lg text-gray-700 mb-16">私たちは日本の企業の以下のような課題に取り組んでいきます。</p>
             <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 mb-16">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">無駄な作業が多い</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+                {/* システム・IT関連の課題 */}
+                <div className="bg-white rounded-lg shadow-md p-8">
+                  <h3 className="text-xl font-bold mb-4 text-center pb-2 border-b border-gray-200">システム・IT</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">無駄な作業が多い</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">ITの導入ができない</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">IT人材が足りない</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">ITの導入ができない</p>
+
+                {/* データ活用の課題 */}
+                <div className="bg-white rounded-lg shadow-md p-8">
+                  <h3 className="text-xl font-bold mb-4 text-center pb-2 border-b border-gray-200">データ活用</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">データを使いこなせていない</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">データ分析のノウハウがない</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">IT人材が足りない</p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">データを使いこなせていない</p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">データ分析のノウハウがない</p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">生成AIの使い方がわからない</p>
-                </div>
-                <div className="flex items-center lg:col-start-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                  <p className="text-gray-700 text-lg">生成AIをうまく活用しきれない</p>
+
+                {/* 先端技術活用の課題 */}
+                <div className="bg-white rounded-lg shadow-md p-8">
+                  <h3 className="text-xl font-bold mb-4 text-center pb-2 border-b border-gray-200">先端技術活用</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">生成AIの使い方がわからない</p>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
+                      <p className="text-gray-700 text-lg">生成AIをうまく活用できない</p>
+                    </div>
+                  </div>
                 </div>
               </div>
               
               <div className="bg-[#3B4646] text-white p-8 rounded-lg">
                 <p className="text-center text-lg leading-relaxed">
-                  私たちは、「効率的なシステム開発」、「高度なデータ分析」、<br />
-                  「生成AIなどの最新技術の導入支援」によって、<br />
-                  世の中をさらにスマートにしていき、未来を照らします。
+                  <span className="inline-block">私たちは、</span>
+                  <span className="inline-block">「効率的なシステム開発」、</span>
+                  <span className="inline-block">「高度なデータ分析」、</span>
+                  <span className="inline-block">「生成AIの導入支援」</span>
+                  <span className="inline-block">によって、</span>
+                  <span className="inline-block">世の中をさらにスマートにし、</span>
+                  <span className="inline-block">未来を照らします。</span>
                 </p>
               </div>
             </div>
@@ -131,8 +159,8 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl font-bold mb-4">システム開発</h3>
                     <p className="text-gray-600 text-center md:text-left">
-                      最新の技術を活用して、<br />
-                      効率的なシステムを開発します。
+                      <span className="inline-block">最新の技術を活用して、</span>
+                      <span className="inline-block">効率的なシステムを開発します。</span>
                     </p>
                   </div>
                 </div>
@@ -156,8 +184,8 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl font-bold mb-4">データ分析</h3>
                     <p className="text-gray-600 text-center md:text-left">
-                      高度なデータ分析技術で、<br />
-                      お客様の経営課題を解決します。
+                      <span className="inline-block">高度なデータ分析技術で、</span>
+                      <span className="inline-block">お客様の経営課題を解決します。</span>
                     </p>
                   </div>
                 </div>
@@ -181,8 +209,8 @@ export default function Home() {
                     </div>
                     <h3 className="text-xl font-bold mb-4">生成AI導入</h3>
                     <p className="text-gray-600 text-center md:text-left">
-                      業務プロセスの効率化に向けて、<br />
-                      生成AIの活用を支援します。
+                      <span className="inline-block">業務プロセスの効率化に向けて、</span>
+                      <span className="inline-block">生成AIの活用を支援します。</span>
                     </p>
                   </div>
                 </div>
@@ -234,57 +262,61 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-24 bg-gray-50">
+        <section id="member" className="w-full py-24 bg-gray-50">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-16">Member</h2>
-            <div className="max-w-4xl mx-auto space-y-16 px-8 md:px-16">
+            <div className="max-w-4xl mx-auto space-y-16 px-2 md:px-8">
               {/* Member 1 */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:pl-12">
-                <div className="w-48 h-48 relative flex-shrink-0">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 md:pl-4">
+                <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
                   <Image
-                    src="/images/image_1.jpg"
-                    alt="Member 1"
+                    src="/images/Matsuda.png"
+                    alt="松田 光司"
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover"
                   />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold mb-4">松田 光司​​​</h3>
                   <p className="text-gray-600 leading-relaxed">
-                  代表​取締役(CEO)<br/>
-                  大阪大学​大学院マルチメディア工学専攻修了<br/>
-                  IT ​メガベンチャー ​データサイエンスティスト<br/>
-                  ​= 保有資格 =<br/>
-                  応用技術者試験<br/>
-                  データベーススペシャリスト​<br/>
-                  統計検定準1級
+                  <span className="inline-block">代表​取締役(CEO)</span><br/>
+                  <span className="inline-block">大阪大学​大学院情報科学研究科専攻修了</span><br/>
+                  <span className="inline-block">IT ​メガベンチャー ​データサイエンスティスト</span><br/>
+                  <span className="inline-block">​【保有資格】</span><br/>
+                  <span className="inline-block">- 応用技術者試験</span><br/>
+                  <span className="inline-block">- データベーススペシャリスト​</span><br/>
+                  <span className="inline-block">- 統計検定準1級</span><br/>
+                  <span className="inline-block">【コメント】</span><br />
+                  <span className="inline-block">ビジネスとデータサイエンスの架け橋になりたいと思っています。</span><br/>
+                  <span className="inline-block">ITやデータの力を最大限に活かし、スマートな世界作りに貢献します。</span>
                   </p>
                 </div>
               </div>
 
               {/* Member 2 */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:pl-12">
-                <div className="w-48 h-48 relative flex-shrink-0">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 md:pl-4">
+                <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
                   <Image
-                    src="/images/image_2.jpg"
+                    src="/images/Nishino.png"
                     alt="Member 2"
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover"
                   />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold mb-4">西野 祐希​​​​</h3>
                   <p className="text-gray-600 leading-relaxed">
-                  取締役(CTO)<br/>
-                  大阪大学​大学院マルチメディア工学専攻修了<br/>
-                  大手IT企業 システムエンジニア​<br/> 
-                  ​= 保有資格 =<br/>  
-                  応用技術者試験​<br/>
-                  データベーススペシャリスト​<br/>
-                  AWS Clertified Cloud Practitioner<br/>
-                  色彩検定2級​<br/>
-                  様々な社会の課題をITの力やデータの力で解決したいと思っています。
-                  ワクワクする明日を作りたい。
+                  <span className="inline-block">取締役(CTO)</span><br/>
+                  <span className="inline-block">大阪大学​大学院情報科学研究科専攻修了</span><br/>
+                  <span className="inline-block">大手IT企業 システムエンジニア​</span><br/> 
+                  <span className="inline-block">​【保有資格】</span><br/>  
+                  <span className="inline-block">- 応用技術者試験​</span><br/>
+                  <span className="inline-block">- データベーススペシャリスト​</span><br/>
+                  <span className="inline-block">- AWS Clertified Cloud Practitioner</span><br/>
+                  <span className="inline-block">- 色彩検定2級​</span><br/>
+                  <span className="inline-block">【コメント】</span><br />
+                  <span className="inline-block">様々な社会の課題をITの力やデータの力で解決したいと思っています。</span>
+                  <span className="inline-block">ワクワクする明日を作りたい。</span>
                   </p>
                 </div>
               </div>
@@ -298,13 +330,15 @@ export default function Home() {
             <div className="max-w-3xl mx-auto text-center space-y-8">
               <div className="space-y-4">
                 <p className="text-lg text-gray-700">
-                  「手作業・属人化された作業・無駄な作業 が多い」<br />
-                  「データをうまく使いこなせない」<br />
-                  「生成AI興味あるけど、何したらいいかわからない」<br />
-                  などのお悩みはありませんか？
+                  <span className="inline-block">「手作業・属人化された作業・</span>
+                  <span className="inline-block">無駄な作業 が多い」</span><br />
+                  <span className="inline-block">「データをうまく使いこなせない」</span><br />
+                  <span className="inline-block">「生成AI興味あるけど、</span>
+                  <span className="inline-block">何したらいいかわからない」</span><br />
+                  <span className="inline-block">などのお悩みはありませんか？</span>
                 </p>
                 <p className="text-lg font-medium text-gray-900">
-                  まずは、無料でお気軽にご相談ください。
+                  <span className="inline-block">まずは、無料でお気軽にご相談ください。</span>
                 </p>
               </div>
               <Button variant="secondary" className="bg-[#2F3437] text-white hover:bg-[#2F3437]/90 px-8 py-6 rounded">
