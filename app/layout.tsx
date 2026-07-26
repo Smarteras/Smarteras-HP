@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Montserrat } from "next/font/google";
 import { Noto_Serif_JP } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -10,10 +11,17 @@ const montserrat = Montserrat({
 });
 
 const notoSerifJP = Noto_Serif_JP({
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-noto-serif-jp",
+});
+
+const notoSansJP = Noto_Sans_JP({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans-jp",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" className={`${montserrat.variable} ${notoSerifJP.variable}`}>
+    <html lang="ja" className={`${montserrat.variable} ${notoSerifJP.variable} ${notoSansJP.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

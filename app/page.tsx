@@ -4,124 +4,194 @@ import { Code, BarChart3, Brain } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
+const NAV_LINKS = [
+  { href: "#service", label: "Service" },
+  { href: "#about", label: "About" },
+  { href: "#member", label: "Member" },
+  { href: "#contact", label: "Contact" },
+]
+
+const CHALLENGES = [
+  {
+    title: "システム・IT",
+    items: ["無駄な作業が多い", "ITの導入ができない", "IT人材が足りない"],
+  },
+  {
+    title: "データ活用",
+    items: ["データを使いこなせていない", "データ分析のノウハウがない"],
+  },
+  {
+    title: "先端技術活用",
+    items: ["生成AIの使い方がわからない", "生成AIをうまく活用できない"],
+  },
+]
+
+const SERVICES = [
+  {
+    index: "01",
+    icon: Code,
+    image: "/images/development.jpg",
+    title: "システム開発",
+    description: "最新の技術を活用して、効率的なシステムを開発します。",
+  },
+  {
+    index: "02",
+    icon: BarChart3,
+    image: "/images/analytics.png",
+    title: "データ分析",
+    description: "高度なデータ分析技術で、お客様の経営課題を解決します。",
+  },
+  {
+    index: "03",
+    icon: Brain,
+    image: "/images/generativeAI.jpg",
+    title: "生成AI導入",
+    description: "業務プロセスの効率化に向けて、生成AIの活用を支援します。",
+  },
+]
+
+const VALUES = ["成長", "簡素化", "Data Utilization", "真摯", "普遍化"]
+
+const MEMBERS = [
+  {
+    image: "/images/Matsuda.png",
+    name: "松田 光司",
+    role: "代表取締役 (CEO)",
+    lines: ["大阪大学大学院情報科学研究科専攻修了", "ITメガベンチャー データサイエンティスト"],
+    certifications: ["応用技術者試験", "データベーススペシャリスト", "統計検定準1級"],
+    comment:
+      "ビジネスとデータサイエンスの架け橋になりたいと思っています。ITやデータの力を最大限に活かし、スマートな世界作りに貢献します。",
+  },
+  {
+    image: "/images/Nishino.png",
+    name: "西野 祐希",
+    role: "取締役 (CTO)",
+    lines: ["大阪大学大学院情報科学研究科専攻修了", "大手IT企業 システムエンジニア"],
+    certifications: ["応用技術者試験", "データベーススペシャリスト", "AWS Certified Cloud Practitioner", "AWS Certified AI Practitioner", "色彩検定1級"],
+    comment: "様々な社会の課題をITの力やデータの力で解決したいと思っています。ワクワクする明日を作りたい。",
+  },
+]
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="block font-montserrat text-xs tracking-[0.3em] uppercase text-brand-deep mb-4">
+      {children}
+    </span>
+  )
+}
+
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.06]">
+        <div className="container flex h-16 sm:h-20 md:h-24 items-center justify-between">
+          <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/images/Smarteras_Logo.svg"
-              alt="Smarteras Logo"
-              width={192}
-              height={192}
-              className="w-48 h-48 object-contain"
+              alt="Smarteras"
+              width={732}
+              height={256}
+              className="h-9 sm:h-11 md:h-14 w-auto"
               priority
             />
           </Link>
-          <nav className="flex gap-6">
-            <Link href="#service" className="text-sm font-medium hover:underline">
-              Service
-            </Link>
-            <Link href="#member" className="text-sm font-medium hover:underline">
-              Member
-            </Link>
-            <Link href="#contact" className="text-sm font-medium hover:underline">
-              Contact
-            </Link>
+          <nav className="flex items-center gap-2 sm:gap-5 md:gap-10">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="group relative inline-block font-montserrat text-[10px] sm:text-[13px] font-medium tracking-[0.1em] sm:tracking-[0.15em] uppercase text-ink/70 transition-colors hover:text-ink"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-brand-deep transition-all duration-300 group-hover:w-full" />
+              </a>
+            ))}
+            <Button
+              asChild
+              size="sm"
+              className="hidden sm:inline-flex rounded-none bg-ink px-5 text-xs tracking-[0.15em] text-white hover:bg-brand-deep"
+            >
+              <a href="#contact">お問い合わせ</a>
+            </Button>
           </nav>
         </div>
       </header>
-      <main className="flex-1 pt-0 md:pt-16">
-        <section className="w-full min-h-screen flex flex-col items-center justify-center bg-[#F5F5F5] relative px-4 pt-16 md:pt-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F5] via-[#FAFAFA] to-[#F5F5F5] opacity-50"></div>
-          <div className="container px-4 md:px-6 text-center flex flex-col justify-center min-h-[300px] relative">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[600px] h-[600px]">
+
+      <main className="flex-1">
+        {/* Hero */}
+        <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-ink px-4">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.05]">
+            <div className="relative w-[120%] max-w-[900px] aspect-[280/353]">
               <Image
                 src="/images/Smarteras_Icon.svg"
-                alt="Smarteras Icon Background"
+                alt=""
                 fill
+                aria-hidden="true"
                 className="object-contain"
                 priority
               />
             </div>
-            <div className="absolute left-[-1rem] right-[-1rem] bg-black/70 backdrop-blur-sm h-screen -translate-y-[calc(100vh-70%)] top-0"></div>
-            <div className="relative z-10">
-              <h1 className="text-5xl font-bold mb-8 relative">
-                <Image
-                  src="/images/Smarteras_Logo_String.svg"
-                  alt="Smarteras"
-                  width={400}
-                  height={100}
-                  className="mx-auto"
-                />
-              </h1>
-              <p className="text-xl text-white relative">世の中をもっとスマートに</p>
-            </div>
+          </div>
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+
+          <div className="relative z-10 flex flex-col items-center text-center">
+            <span className="mb-8 font-montserrat text-[11px] md:text-xs tracking-[0.4em] uppercase text-brand">
+              IT × Data × Generative AI
+            </span>
+            <Image
+              src="/images/Smarteras_Logo_String.svg"
+              alt="Smarteras"
+              width={662}
+              height={258}
+              className="mb-8 h-auto w-56 md:w-80"
+              priority
+            />
+            <div className="mb-8 h-px w-16 bg-white/25" />
+            <p className="font-serif text-2xl md:text-4xl tracking-wide text-white/90">
+              世の中をもっとスマートに
+            </p>
+          </div>
+
+          <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3 text-white/40">
+            <span className="font-montserrat text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+            <div className="h-8 w-px animate-pulse bg-white/30 motion-reduce:animate-none" />
           </div>
         </section>
 
-        <section className="w-full py-24 bg-gray-50">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-8">
-              <span className="md:inline block">Smarterasが</span>
-              <span className="md:inline"> 取り組む課題</span>
-            </h2>
-            <p className="text-center text-lg text-gray-700 mb-16">私たちは日本の企業の以下のような課題に取り組んでいきます。</p>
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-                {/* システム・IT関連の課題 */}
-                <div className="bg-white rounded-lg shadow-md p-8">
-                  <h3 className="text-xl font-bold mb-4 text-center pb-2 border-b border-gray-200">システム・IT</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">無駄な作業が多い</p>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">ITの導入ができない</p>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">IT人材が足りない</p>
-                    </div>
-                  </div>
-                </div>
+        {/* Challenges */}
+        <section className="w-full bg-[#FAFAF9] py-28 md:py-36">
+          <div className="container">
+            <div className="mb-16 text-center">
+              <Eyebrow>Challenges</Eyebrow>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink mb-5">
+                Smarterasが取り組む課題
+              </h2>
+              <p className="text-ink/60 text-base md:text-lg">
+                私たちは日本の企業の以下のような課題に取り組んでいきます。
+              </p>
+            </div>
 
-                {/* データ活用の課題 */}
-                <div className="bg-white rounded-lg shadow-md p-8">
-                  <h3 className="text-xl font-bold mb-4 text-center pb-2 border-b border-gray-200">データ活用</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">データを使いこなせていない</p>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">データ分析のノウハウがない</p>
-                    </div>
+            <div className="mx-auto max-w-5xl">
+              <div className="mb-16 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-black/[0.06] md:grid-cols-3">
+                {CHALLENGES.map((group) => (
+                  <div key={group.title} className="bg-white p-8 md:p-10">
+                    <h3 className="mb-6 border-b border-black/[0.06] pb-4 text-center text-base font-semibold tracking-wide text-ink">
+                      {group.title}
+                    </h3>
+                    <ul className="space-y-4">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-ink/60">
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-deep" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-
-                {/* 先端技術活用の課題 */}
-                <div className="bg-white rounded-lg shadow-md p-8">
-                  <h3 className="text-xl font-bold mb-4 text-center pb-2 border-b border-gray-200">先端技術活用</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">生成AIの使い方がわからない</p>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-4"></div>
-                      <p className="text-gray-700 text-lg">生成AIをうまく活用できない</p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-              
-              <div className="bg-[#3B4646] text-white p-8 rounded-lg">
-                <p className="text-center text-lg leading-relaxed">
+
+              <div className="bg-ink p-10 text-white md:p-12">
+                <p className="text-center text-base md:text-lg font-light leading-loose">
                   <span className="inline-block">私たちは、</span>
                   <span className="inline-block">「効率的なシステム開発」、</span>
                   <span className="inline-block">「高度なデータ分析」、</span>
@@ -135,223 +205,188 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="w-full h-px bg-gray-200"></div>
+        {/* Service */}
+        <section id="service" className="w-full bg-white py-28 md:py-36">
+          <div className="container">
+            <div className="mb-20 text-center">
+              <Eyebrow>What We Do</Eyebrow>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink">Service</h2>
+            </div>
 
-        <section id="service" className="w-full py-24 bg-white">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">Service</h2>
-            <div className="max-w-5xl mx-auto grid grid-cols-1 gap-12">
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="flex items-center justify-center md:justify-end order-1 md:order-none">
-                    <div className="relative w-56 h-56">
-                      <Image
-                        src="/images/development.jpg"
-                        alt="Development Icon"
-                        fill
-                        className="object-contain"
-                      />
+            <div className="mx-auto max-w-5xl divide-y divide-black/[0.06]">
+              {SERVICES.map((service, i) => {
+                const Icon = service.icon
+                const reversed = i % 2 === 1
+                return (
+                  <div
+                    key={service.index}
+                    className="grid grid-cols-1 items-center gap-10 py-14 first:pt-0 last:pb-0 md:grid-cols-2 md:gap-16"
+                  >
+                    <div
+                      className={`flex justify-center ${reversed ? "md:order-2 md:justify-start" : "md:justify-end"}`}
+                    >
+                      <div className="relative h-48 w-48 md:h-56 md:w-56">
+                        <Image
+                          src={service.image}
+                          alt={`${service.title}のイメージ`}
+                          fill
+                          sizes="(min-width: 768px) 224px, 192px"
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className={`flex flex-col items-center text-center md:items-start md:text-left ${
+                        reversed ? "md:order-1 md:items-end md:pr-6 md:text-right" : "md:pl-6"
+                      }`}
+                    >
+                      <span className="mb-1 font-serif text-5xl leading-none text-ink/10">
+                        {service.index}
+                      </span>
+                      <div className={`mb-3 flex items-center gap-2 ${reversed ? "md:flex-row-reverse" : ""}`}>
+                        <Icon className="h-4 w-4 text-brand-deep" strokeWidth={1.5} />
+                        <h3 className="text-xl font-semibold tracking-wide text-ink">{service.title}</h3>
+                      </div>
+                      <p className="text-ink/60 leading-relaxed">{service.description}</p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-center md:items-start md:pl-8 order-2 md:order-none">
-                    <div className="w-16 h-16 rounded-full bg-gray-400 flex items-center justify-center text-white font-bold mb-4">
-                      01
-                    </div>
-                    <h3 className="text-xl font-bold mb-4">システム開発</h3>
-                    <p className="text-gray-600 text-center md:text-left">
-                      <span className="inline-block">最新の技術を活用して、</span>
-                      <span className="inline-block">効率的なシステムを開発します。</span>
-                    </p>
-                  </div>
-                </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="w-full bg-[#FAFAF9] py-28 md:py-36">
+          <div className="container">
+            <div className="mb-20 text-center">
+              <Eyebrow>Who We Are</Eyebrow>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink">About us</h2>
+            </div>
+
+            <div className="mx-auto max-w-3xl space-y-20">
+              <div className="text-center">
+                <span className="mb-4 inline-block font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-ink/40">
+                  Mission
+                </span>
+                <p className="font-serif text-2xl md:text-3xl text-ink">世の中をもっとスマートに</p>
+                <div className="mx-auto mt-5 h-px w-10 bg-brand-deep" />
               </div>
 
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="flex items-center justify-center md:justify-end order-1 md:order-none">
-                    <div className="relative w-56 h-56">
-                      <Image
-                        src="/images/analytics.png"
-                        alt="Analytics Icon"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center md:items-start md:pl-8 order-2 md:order-none">
-                    <div className="w-16 h-16 rounded-full bg-[#FCD34D] flex items-center justify-center text-white font-bold mb-4">
-                      02
-                    </div>
-                    <h3 className="text-xl font-bold mb-4">データ分析</h3>
-                    <p className="text-gray-600 text-center md:text-left">
-                      <span className="inline-block">高度なデータ分析技術で、</span>
-                      <span className="inline-block">お客様の経営課題を解決します。</span>
-                    </p>
-                  </div>
-                </div>
+              <div className="text-center">
+                <span className="mb-4 inline-block font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-ink/40">
+                  Vision
+                </span>
+                <p className="font-serif text-2xl md:text-3xl text-ink">常に新しいことに挑戦し続ける</p>
+                <div className="mx-auto mt-5 h-px w-10 bg-brand-deep" />
               </div>
 
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="flex items-center justify-center md:justify-end order-1 md:order-none">
-                    <div className="relative w-56 h-56">
-                      <Image
-                        src="/images/generativeAI.jpg"
-                        alt="Generative AI Icon"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center md:items-start md:pl-8 order-2 md:order-none">
-                    <div className="w-16 h-16 rounded-full bg-[#7DD3FC] flex items-center justify-center text-white font-bold mb-4">
-                      03
-                    </div>
-                    <h3 className="text-xl font-bold mb-4">生成AI導入</h3>
-                    <p className="text-gray-600 text-center md:text-left">
-                      <span className="inline-block">業務プロセスの効率化に向けて、</span>
-                      <span className="inline-block">生成AIの活用を支援します。</span>
-                    </p>
-                  </div>
+              <div className="text-center">
+                <span className="mb-8 inline-block font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-ink/40">
+                  Value
+                </span>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {VALUES.map((value) => (
+                    <span
+                      key={value}
+                      className="rounded-full border border-black/10 px-5 py-2 text-sm text-ink/70"
+                    >
+                      {value}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="w-full h-px bg-gray-200"></div>
+        {/* Member */}
+        <section id="member" className="w-full bg-white py-28 md:py-36">
+          <div className="container">
+            <div className="mb-20 text-center">
+              <Eyebrow>Team</Eyebrow>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink">Member</h2>
+            </div>
 
-        <section id="about" className="w-full py-24 bg-white">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">About us</h2>
-            <div className="max-w-4xl mx-auto space-y-16">
-              {/* Mission */}
-              <div className="text-center">
-                <h3 className="inline-block text-2xl font-bold px-8 py-2 bg-[#3B4646] text-white rounded-full mb-6">Mission</h3>
-                <p className="text-2xl text-gray-800">世の中をもっとスマートに</p>
-              </div>
-
-              {/* Vision */}
-              <div className="text-center">
-                <h3 className="inline-block text-2xl font-bold px-8 py-2 bg-[#FCD34D] text-white rounded-full mb-6">Vision</h3>
-                <p className="text-2xl text-gray-800">常に新しいことに挑戦し続ける</p>
-              </div>
-
-              {/* Value */}
-              <div className="text-center">
-                <h3 className="inline-block text-2xl font-bold px-8 py-2 bg-[#7DD3FC] text-white rounded-full mb-8">Value</h3>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
-                    <p className="font-medium text-gray-800">成長</p>
+            <div className="mx-auto max-w-4xl space-y-20 px-2 md:px-8">
+              {MEMBERS.map((member) => (
+                <div
+                  key={member.name}
+                  className="flex flex-col items-center gap-10 md:flex-row md:items-start md:gap-14"
+                >
+                  <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-full ring-1 ring-black/[0.06] md:h-44 md:w-44">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(min-width: 768px) 176px, 144px"
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
-                    <p className="font-medium text-gray-800">簡素化</p>
-                  </div>
-                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
-                    <p className="font-medium text-gray-800">Data Utilization</p>
-                  </div>
-                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4">
-                    <p className="font-medium text-gray-800">真摯</p>
-                  </div>
-                  <div className="flex items-center justify-center border-b-2 border-gray-200 pb-4 md:col-span-1 col-span-2">
-                    <p className="font-medium text-gray-800">普遍化</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="mb-1 font-serif text-2xl text-ink">{member.name}</h3>
+                    <p className="mb-6 font-montserrat text-xs tracking-[0.2em] uppercase text-brand-deep">
+                      {member.role}
+                    </p>
+                    <div className="space-y-1 text-[15px] leading-relaxed text-ink/60">
+                      {member.lines.map((line) => (
+                        <p key={line}>{line}</p>
+                      ))}
+                    </div>
+                    <div className="mt-5">
+                      <p className="mb-1 font-montserrat text-[11px] tracking-[0.2em] uppercase text-ink/35">
+                        Certifications
+                      </p>
+                      <p className="text-[15px] leading-relaxed text-ink/60">
+                        {member.certifications.join(" ／ ")}
+                      </p>
+                    </div>
+                    <div className="mt-5">
+                      <p className="mb-1 font-montserrat text-[11px] tracking-[0.2em] uppercase text-ink/35">
+                        Comment
+                      </p>
+                      <p className="text-[15px] leading-relaxed text-ink/60">{member.comment}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="member" className="w-full py-24 bg-gray-50">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">Member</h2>
-            <div className="max-w-4xl mx-auto space-y-16 px-2 md:px-8">
-              {/* Member 1 */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 md:pl-4">
-                <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
-                  <Image
-                    src="/images/Matsuda.png"
-                    alt="松田 光司"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4">松田 光司​​​</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                  <span className="inline-block">代表​取締役(CEO)</span><br/>
-                  <span className="inline-block">大阪大学​大学院情報科学研究科専攻修了</span><br/>
-                  <span className="inline-block">IT ​メガベンチャー ​データサイエンスティスト</span><br/>
-                  <span className="inline-block">​【保有資格】</span><br/>
-                  <span className="inline-block">- 応用技術者試験</span><br/>
-                  <span className="inline-block">- データベーススペシャリスト​</span><br/>
-                  <span className="inline-block">- 統計検定準1級</span><br/>
-                  <span className="inline-block">【コメント】</span><br />
-                  <span className="inline-block">ビジネスとデータサイエンスの架け橋になりたいと思っています。</span><br/>
-                  <span className="inline-block">ITやデータの力を最大限に活かし、スマートな世界作りに貢献します。</span>
-                  </p>
-                </div>
+        {/* Contact */}
+        <section id="contact" className="w-full bg-[#FAFAF9] py-28 md:py-36">
+          <div className="container">
+            <div className="mx-auto max-w-2xl text-center">
+              <Eyebrow>Get in Touch</Eyebrow>
+              <h2 className="font-serif text-3xl md:text-4xl text-ink mb-10">Contact Us</h2>
+              <div className="mb-8 space-y-2 text-base md:text-lg leading-relaxed text-ink/60">
+                <p>「手作業・属人化された作業・無駄な作業が多い」</p>
+                <p>「データをうまく使いこなせない」</p>
+                <p>「生成AI興味あるけど、何したらいいかわからない」</p>
+                <p>などのお悩みはありませんか？</p>
               </div>
-
-              {/* Member 2 */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 md:pl-4">
-                <div className="w-40 h-40 md:w-48 md:h-48 relative flex-shrink-0">
-                  <Image
-                    src="/images/Nishino.png"
-                    alt="Member 2"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4">西野 祐希​​​​</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                  <span className="inline-block">取締役(CTO)</span><br/>
-                  <span className="inline-block">大阪大学​大学院情報科学研究科専攻修了</span><br/>
-                  <span className="inline-block">大手IT企業 システムエンジニア​</span><br/> 
-                  <span className="inline-block">​【保有資格】</span><br/>  
-                  <span className="inline-block">- 応用技術者試験​</span><br/>
-                  <span className="inline-block">- データベーススペシャリスト​</span><br/>
-                  <span className="inline-block">- AWS Clertified Cloud Practitioner</span><br/>
-                  <span className="inline-block">- 色彩検定2級​</span><br/>
-                  <span className="inline-block">【コメント】</span><br />
-                  <span className="inline-block">様々な社会の課題をITの力やデータの力で解決したいと思っています。</span>
-                  <span className="inline-block">ワクワクする明日を作りたい。</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="w-full py-24 bg-white">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-16">Contact Us</h2>
-            <div className="max-w-3xl mx-auto text-center space-y-8">
-              <div className="space-y-4">
-                <p className="text-lg text-gray-700">
-                  <span className="inline-block">「手作業・属人化された作業・</span>
-                  <span className="inline-block">無駄な作業 が多い」</span><br />
-                  <span className="inline-block">「データをうまく使いこなせない」</span><br />
-                  <span className="inline-block">「生成AI興味あるけど、</span>
-                  <span className="inline-block">何したらいいかわからない」</span><br />
-                  <span className="inline-block">などのお悩みはありませんか？</span>
-                </p>
-                <p className="text-lg font-medium text-gray-900">
-                  <span className="inline-block">まずは、無料でお気軽にご相談ください。</span>
-                </p>
-              </div>
-              <Button variant="secondary" className="bg-[#2F3437] text-white hover:bg-[#2F3437]/90 px-8 py-6 rounded">
+              <p className="mb-10 font-medium text-ink">まずは、無料でお気軽にご相談ください。</p>
+              <Button className="rounded-none bg-ink px-10 py-6 text-sm tracking-[0.15em] text-white transition-colors hover:bg-brand-deep">
                 お問い合わせはこちらへ
               </Button>
             </div>
           </div>
         </section>
       </main>
-      <footer className="py-6 bg-[#2F3437] text-white/60 text-sm text-center">
-        <div className="container px-4 md:px-6">© 2025 Smarteras Inc. All rights reserved.</div>
+
+      <footer className="border-t border-white/[0.06] bg-ink py-10 text-center text-white/40">
+        <div className="container space-y-4">
+          <Image
+            src="/images/Smarteras_Logo.svg"
+            alt="Smarteras"
+            width={732}
+            height={256}
+            className="mx-auto h-6 w-auto opacity-60"
+          />
+          <p className="text-xs tracking-wide">© 2025 Smarteras Inc. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   )
 }
-

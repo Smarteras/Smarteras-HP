@@ -9,8 +9,22 @@ const config: Config = {
     "*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        md: '1.5rem',
+        lg: '2rem',
+      },
+    },
   	extend: {
   		colors: {
+  			ink: '#1C2120',
+  			stone: '#859798',
+  			brand: {
+  				DEFAULT: '#02C5D0',
+  				deep: '#0E7490',
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -90,7 +104,8 @@ const config: Config = {
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		fontFamily: {
-  			sans: ["var(--font-noto-serif-jp)", "var(--font-montserrat)", "serif"],
+  			sans: ["var(--font-noto-sans-jp)", "var(--font-montserrat)", "sans-serif"],
+  			serif: ["var(--font-noto-serif-jp)", "serif"],
   			montserrat: ["var(--font-montserrat)", "sans-serif"],
   		},
   	}
