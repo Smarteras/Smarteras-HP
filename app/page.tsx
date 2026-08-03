@@ -50,7 +50,14 @@ const SERVICES = [
   },
 ]
 
-const VALUES = ["成長", "簡素化", "Data Utilization", "真摯", "普遍化"]
+const VALUES = [
+  { en: "Growth", ja: "成長", description: "自らと組織の限界を決めない" },
+  { en: "Simplicity", ja: "簡素化", description: "複雑さを削ぎ落とし、本質を追求する" },
+  { en: "Data-Driven", ja: "データ活用", description: "直感に頼らず、データで未来を証明する" },
+  { en: "Integrity", ja: "真摯", description: "全てのステークホルダーに誠実に向き合う" },
+  { en: "Universality", ja: "普遍化", description: "一過性ではなく、長く愛される価値を届ける" },
+  { en: "Agility", ja: "俊敏", description: "考えながら動く。速さは誠実さの一形態である" },
+]
 
 const MEMBERS = [
   {
@@ -269,7 +276,10 @@ export default function Home() {
                 <span className="mb-4 inline-block font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-ink/40">
                   Mission
                 </span>
-                <p className="font-serif text-2xl md:text-3xl text-ink">世の中をもっとスマートに</p>
+                <p className="font-serif text-2xl md:text-3xl text-ink">世界をスマートに、すべての人へ。</p>
+                <p className="text-pretty mx-auto mt-5 max-w-md text-sm leading-loose text-ink/60 md:text-base">
+                  ITとAIが持つ力を、一部の人だけでなくあらゆる人・組織が自然に享受できる世の中をつくる。テクノロジーをシンプルに、使いやすく、意味のある形で届け続ける。
+                </p>
                 <div className="mx-auto mt-5 h-px w-10 bg-brand-deep" />
               </div>
 
@@ -277,7 +287,10 @@ export default function Home() {
                 <span className="mb-4 inline-block font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-ink/40">
                   Vision
                 </span>
-                <p className="font-serif text-2xl md:text-3xl text-ink">常に新しいことに挑戦し続ける</p>
+                <p className="font-serif text-2xl md:text-3xl text-ink">最先端を、すべての人へつなぐ架け橋になる。</p>
+                <p className="text-pretty mx-auto mt-5 max-w-md text-sm leading-loose text-ink/60 md:text-base">
+                  最前線のテクノロジーを、業界・規模・知識に関わらずあらゆる人と組織が使いこなせる形で届ける。ITとビジネスの間に立ち、信頼で結ばれた架け橋として社会に根付く会社になる。
+                </p>
                 <div className="mx-auto mt-5 h-px w-10 bg-brand-deep" />
               </div>
 
@@ -285,14 +298,20 @@ export default function Home() {
                 <span className="mb-8 inline-block font-montserrat text-xs font-semibold tracking-[0.3em] uppercase text-ink/40">
                   Value
                 </span>
-                <div className="flex flex-wrap justify-center gap-3">
+                <div className="grid gap-4 sm:grid-cols-2">
                   {VALUES.map((value) => (
-                    <span
-                      key={value}
-                      className="rounded-full border border-black/10 px-5 py-2 text-sm text-ink/70"
+                    <div
+                      key={value.en}
+                      className="rounded-2xl border border-black/10 px-6 py-5 text-left"
                     >
-                      {value}
-                    </span>
+                      <p className="font-serif text-lg text-ink">
+                        {value.en}
+                        <span className="ml-2 text-xs font-montserrat tracking-wider text-ink/40">
+                          {value.ja}
+                        </span>
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-ink/60">{value.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -384,7 +403,7 @@ export default function Home() {
             height={256}
             className="mx-auto h-6 w-auto opacity-60"
           />
-          <p className="text-xs tracking-wide">© 2025 Smarteras Inc. All rights reserved.</p>
+          <p className="text-xs tracking-wide">© 2026 Smarteras Inc. All rights reserved.</p>
         </div>
       </footer>
     </div>
