@@ -1,0 +1,19 @@
+<!-- Netlifyはビルド成果物のHTMLを解析してフォームを検出する。
+     App Routerのフォームはクライアント描画のため成果物に現れないので、
+     ここに同じ name のフィールドを持つ静的フォームを置いて検出させる。
+     送信は contact-form.tsx から /__forms.html への POST で行う。 -->
+<html>
+  <head>
+    <title>Netlify Forms</title>
+  </head>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
