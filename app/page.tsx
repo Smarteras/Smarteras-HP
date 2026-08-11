@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Code, BarChart3, Brain } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { ContactForm } from "@/components/contact-form"
 
 const NAV_LINKS = [
   { href: "#service", label: "Service" },
@@ -385,10 +386,8 @@ export default function Home() {
                 <p>「生成AI興味あるけど、何したらいいかわからない」</p>
                 <p>などのお悩みはありませんか？</p>
               </div>
-              <p className="mb-10 font-medium text-ink">まずは、無料でお気軽にご相談ください。</p>
-              <Button className="rounded-none bg-ink px-10 py-6 text-sm tracking-[0.15em] text-white transition-colors hover:bg-brand-deep">
-                お問い合わせはこちらへ
-              </Button>
+              <p className="mb-14 font-medium text-ink">まずは、無料でお気軽にご相談ください。</p>
+              <ContactForm />
             </div>
           </div>
         </section>
