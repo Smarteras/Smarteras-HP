@@ -3,14 +3,9 @@ import Image from "next/image"
 import { Code, BarChart3, Brain } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { ContactForm } from "@/components/contact-form"
-
-const NAV_LINKS = [
-  { href: "#service", label: "Service" },
-  { href: "#about", label: "About" },
-  { href: "#member", label: "Member" },
-  { href: "#contact", label: "Contact" },
-]
+import { Eyebrow } from "@/components/eyebrow"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
 
 const CHALLENGES = [
   {
@@ -80,50 +75,10 @@ const MEMBERS = [
   },
 ]
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="block font-montserrat text-xs tracking-[0.3em] uppercase text-brand-deep mb-4">
-      {children}
-    </span>
-  )
-}
-
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.06]">
-        <div className="container flex h-16 sm:h-20 md:h-24 items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0">
-            <Image
-              src="/images/Smarteras_Logo.svg"
-              alt="Smarteras"
-              width={732}
-              height={256}
-              className="h-9 sm:h-11 md:h-14 w-auto"
-              priority
-            />
-          </Link>
-          <nav className="flex items-center gap-2 sm:gap-5 md:gap-10">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="group relative inline-block font-montserrat text-[10px] sm:text-[13px] font-medium tracking-[0.1em] sm:tracking-[0.15em] uppercase text-ink/70 transition-colors hover:text-ink"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-brand-deep transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
-            <Button
-              asChild
-              size="sm"
-              className="hidden sm:inline-flex rounded-none bg-ink px-5 text-xs tracking-[0.15em] text-white hover:bg-brand-deep"
-            >
-              <a href="#contact">お問い合わせ</a>
-            </Button>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -386,25 +341,19 @@ export default function Home() {
                 <p>「生成AI興味あるけど、何したらいいかわからない」</p>
                 <p>などのお悩みはありませんか？</p>
               </div>
-              <p className="mb-14 font-medium text-ink">まずは、無料でお気軽にご相談ください。</p>
-              <ContactForm />
+              <p className="mb-10 font-medium text-ink">まずは、無料でお気軽にご相談ください。</p>
+              <Button
+                asChild
+                className="rounded-none bg-ink px-10 py-6 text-sm tracking-[0.15em] text-white transition-colors hover:bg-brand-deep"
+              >
+                <Link href="/contact">お問い合わせはこちらへ</Link>
+              </Button>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/[0.06] bg-ink py-10 text-center text-white/40">
-        <div className="container space-y-4">
-          <Image
-            src="/images/Smarteras_Logo.svg"
-            alt="Smarteras"
-            width={732}
-            height={256}
-            className="mx-auto h-6 w-auto opacity-60"
-          />
-          <p className="text-xs tracking-wide">© 2026 Smarteras Inc. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }
